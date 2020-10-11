@@ -22,10 +22,7 @@ using System.Linq.Dynamic;
 using System.Collections;
 using System.Configuration;
 using Microsoft.Win32;
-
-
-
-
+using System.Runtime.Serialization;
 
 namespace SaveMoney
 {
@@ -34,13 +31,13 @@ namespace SaveMoney
     /// </summary>
     public partial class WindowForUser : Window
     {
+        //public Func<double, string> Formatter { get; set; }
         public UsersInfoDbContext dcs = new UsersInfoDbContext(); // globali baze ???? 
 
         int gotUserName;
 
         TimeClass dayToDay = new TimeClass(); // laiko klase ar geriau kas nors kito ? 
         
-
         private ObservableValue Value1;
         private ObservableValue Value2;
         private ObservableValue Value3;
@@ -59,18 +56,21 @@ namespace SaveMoney
             {
                 new ColumnSeries
                 {
+
                     Title = Convert.ToString(dayToDay.GetYear()), 
                     Values = new ChartValues<ObservableValue> { Value1, Value2, Value3, Value4}
                 }
             };
-
+            
+            //   Formatter = val=>val.ToString('');
             Labels = new[] { "Fuel", "Food", "Trips", "Gadgets" };
             DataContext = this;
         }
+        
         public SeriesCollection SeriesCollection { get; set; }
         public string[] Labels { get; set; }
         public Func<ObservableValue, string> Formatter { get; set; }
-
+        
         public void getAllData(int userLoginName)
         {// gauti duomenys is pirmos formos. Ar tai geras budas? 
             gotUserName = userLoginName;
@@ -115,7 +115,7 @@ namespace SaveMoney
 
         private void CartesianChart_Loaded(object sender, RoutedEventArgs e)
         {
-
+           
         }
         public void AddDataToChartFromDb()
         {// prideda duomenis i grafika. Matomos vartotojo islaidos

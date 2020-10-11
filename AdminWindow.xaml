@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SaveMoney"
         mc:Ignorable="d"
-        Title="AdminWindow" Height="450" Width="800">
+        Title="AdminWindow" MinHeight="450" MinWidth="900">
     <Grid>
 
         <Grid.ColumnDefinitions>
@@ -51,13 +51,22 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button Grid.Column="2" Grid.Row="2" Height="30" Width="100" Content="Update user" FontFamily="Times New Roman" FontSize="18" Margin="510,0,1,220" Name="Unlock" Click="Unlock_Click" IsEnabled="False" VerticalAlignment="Bottom" />
-        <TextBox Grid.Column="3" Grid.Row="2" Height="30" Width="100" Margin="10,0,0,220" Name="LogNameBox"/>
-        <TextBox Grid.Column="3" Grid.Row="2" Height="30" Width="100" Margin="10,0,0,140" Name="FirstNameBox"/>
-        <TextBox Grid.Column="3" Grid.Row="2" Height="30" Width="100" Margin="10,0,0,60" Name="LastNameBox"/>
-        <TextBox Grid.Column="3" Grid.Row="2" Height="30" Width="100" Margin="10,80,0,60" Name="PasswordBox"/>
-        <TextBox Grid.Column="3" Grid.Row="2" Height="30" Width="100" Margin="10,160,0,60" Name="LockStatusBox"/>
-        <TextBox Grid.Column="3" Grid.Row="2" Height="30" Width="100" Margin="10,180,0,0" Name="UserPhoneBox"/>
-
+        <Button Grid.Column="2" Grid.Row="3" Height="30" Width="100" Content="Create user" FontFamily="Times New Roman" FontSize="18" Margin="0,0,500,0" Name="createUser" Click="createUser_Click"/>
+        <Button Grid.Column="2" Grid.Row="4" Height="30" Width="100" Content="Delete user" FontFamily="Times New Roman" FontSize="18" Margin="0,10,500,0" Name="deleteUser" Click="deleteUser_Click"/>
+        <TextBox Grid.Column="3" Grid.Row="2" Height="30" Width="100" FontFamily="Times New Roman" Margin="10,0,0,220" FontSize="16" VerticalContentAlignment="Center" Name="LogNameBox"/>
+        <TextBox Grid.Column="3" Grid.Row="2" Height="30" Width="100" FontFamily="Times New Roman" Margin="10,0,0,140" FontSize="16" VerticalContentAlignment="Center" Name="FirstNameBox"/>
+        <TextBox Grid.Column="3" Grid.Row="2" Height="30" Width="100" FontFamily="Times New Roman" Margin="10,0,0,60" FontSize="16" VerticalContentAlignment="Center" Name="LastNameBox"/>
+        <TextBox Grid.Column="3" Grid.Row="2" Height="30" Width="100" FontFamily="Times New Roman" Margin="10,80,0,60" FontSize="16" VerticalContentAlignment="Center" Name="PasswordBox"/>
+        <TextBox Grid.Column="3" Grid.Row="2" Height="30" Width="100" FontFamily="Times New Roman" Margin="10,160,0,60" FontSize="16" VerticalContentAlignment="Center" Name="LockStatusBox"/>
+        <TextBox Grid.Column="3" Grid.Row="2" Height="30" Width="100" FontFamily="Times New Roman" Margin="10,180,0,0" FontSize="16" VerticalContentAlignment="Center" Name="UserPhoneBox"/>
+        <TextBox Grid.Column="2" Grid.Row="4" Height="30" Width="80" Margin="0,10,120,0" FontFamily="Times New Roman" FontSize="16" VerticalContentAlignment="Center" Name="deleteUserID" />
+        <Label Grid.Column="4" Grid.Row="2" Height="30" Width="100" Margin="10,0,0,220" Content="Log Name" FontFamily="Times New Roman" FontSize="18" />
+        <Label Grid.Column="4" Grid.Row="2" Height="30" Width="100" Margin="10,0,0,140" Content="First Name" FontFamily="Times New Roman" FontSize="18"/>
+        <Label Grid.Column="4" Grid.Row="2" Height="30" Width="100" Margin="10,0,0,60" Content="Last Name" FontFamily="Times New Roman" FontSize="18"/>
+        <Label Grid.Column="4" Grid.Row="2" Height="30" Width="100" Margin="10,100,0,0" Content="Lock status" FontFamily="Times New Roman" FontSize="18"/>
+        <Label Grid.Column="4" Grid.Row="2" Height="30" Width="100" Margin="10,20,0,0" Content="Password" FontFamily="Times New Roman" FontSize="18"/>
+        <Label Grid.Column="4" Grid.Row="2" Height="30" Width="100" Margin="10,180,0,0" Content="Number" FontFamily="Times New Roman" FontSize="18"/>
+        <Label Grid.Column="2" Grid.Row="4" Height="30" Width="100" Margin="0,10,280,0" Content="Id number:" FontFamily="Times New Roman" FontSize="18"/>
     </Grid>
 
 </Window> 

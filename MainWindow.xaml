@@ -38,9 +38,9 @@
 
         <Label Grid.Column="4" Grid.Row="6" Width="100" Height="30" Content="User name:" FontSize="18" FontFamily="Times New Roman" />
         <Label Grid.Column="4" Grid.Row="8" Width="100" Height="30" Content="Password:" FontSize="18" FontFamily="Times New Roman" />
-        <TextBox Grid.Column="5" Grid.Row="6" Width="180" Margin="0,0,0,00" Name="UserName" TextChanged="UserName_TextChanged" />
+        <TextBox Grid.Column="5" Grid.Row="6" Width="180" Margin="0,0,0,00" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="16" Name="UserName" TextChanged="UserName_TextChanged" />
         <!--<TextBox Grid.Column="5" Grid.Row="8" Width="180" Margin="0,0,0,0" Name="UserPassWord" TextChanged="UserPassWord_TextChanged"  /> -->
-        <PasswordBox Grid.Column="5" Grid.Row="8" Width="180" Margin="0,0,0,0" Name="UserPassword"  PasswordChanged="UserPassword_PasswordChanged"/>
+        <PasswordBox Grid.Column="5" Grid.Row="8" Width="180" Margin="0,0,0,0" VerticalContentAlignment="Center" FontSize="16" Name="UserPassword" PasswordChanged="UserPassword_PasswordChanged"/>
        
         <Button Grid.Column="5" Grid.Row="10" Width="90" Height="30" Content="Login" FontSize="18" Name="Login" FontFamily="Times New Roman" IsEnabled="False" Click="Login_Click" />
     </Grid>

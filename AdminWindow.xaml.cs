@@ -36,7 +36,7 @@ namespace SaveMoney
                 {
                     if ( number > 999999999)
                     { //Convert.ToInt64(UserPhoneBox.Text)
-                        MessageBox.Show("Phone number can't be longer when 9 digits");
+                        MessageBox.Show("Phone number can't be longer than 9 digits");
                     }
                     else
                     {
@@ -102,6 +102,68 @@ namespace SaveMoney
             PasswordBox.Text = string.Empty;
             LockStatusBox.Text = string.Empty;
             UserPhoneBox.Text = string.Empty;
+        }
+
+        private void createUser_Click(object sender, RoutedEventArgs e)
+        { // pridedamas naujas vartotojas 
+            int lastUserID = dcs.userDatas.Max(a=>a.id);
+            MessageBox.Show(Convert.ToString(lastUserID));
+            dcs.userDatas.Add(new UserData { fakeNameLog = "NewFake", firstName = "NewName", lastName = "NewLast", lockInfo = false, number = "0", userPassword = "0", id = (lastUserID + 1) });
+            dcs.usersavings.Add(new UserSavings { salary = 0, foodCosts = 0, fuelCosts = 0, gadgetsCosts = 0, savings = 0, tripsCosts = 0, id_Savings = (lastUserID +1) });
+            dcs.logChecks.Add(new LogCheck { logData = 0, LogData_id = (lastUserID+1)}); ;
+            dcs.SaveChanges();
+            users.Clear();
+            showUsersData.ItemsSource = null;
+            LoadUsersData();
+        }
+
+        private void deleteUser_Click(object sender, RoutedEventArgs e)
+        {
+            if (int.TryParse(deleteUserID.Text, out int number))
+            {
+                bool userNotFound = false;
+                foreach (var item in dcs.userDatas)
+                {
+                    if (item.id == number )
+                    {
+                        userNotFound = true;
+                    }
+                   
+                }
+                if (userNotFound == false)
+                {
+                    MessageBox.Show($"User with ID: {deleteUserID.Text} was not found!");
+                }
+                else
+                {
+                    if (number == 6)
+                    {
+                        MessageBox.Show("You can't delete Admin!");
+                    }
+                    else
+                    {
+                        //trina vartotoja
+                        DeleteUserFromDB(number);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Wrong input, please write numbers!");
+            }
+        }
+        public void DeleteUserFromDB(int number)
+        {
+            UserData userDatasdelete = dcs.userDatas.Find(number);
+            UserSavings userSavingsdelete = dcs.usersavings.Find(number);
+            LogCheck logCheckdelete = dcs.logChecks.Find(number);
+            dcs.userDatas.Remove(userDatasdelete);
+            dcs.usersavings.Remove(userSavingsdelete);
+            dcs.logChecks.Remove(logCheckdelete);
+            dcs.SaveChanges();
+            users.Clear();
+            showUsersData.ItemsSource = null;
+            LoadUsersData();
         }
     }
 }
